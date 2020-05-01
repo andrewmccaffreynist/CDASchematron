@@ -1,0 +1,163 @@
+<!--  Vital Records: Death Reporting Label: 2.16.840.1.113883.10.20.26.1.9 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.9-errors">
+    <title>Vital Records Death Reporting Label - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]'>
+    <assert test='@classCode="CLUSTER" and @moodCode="EVN"'>
+       CONF-134 and CONF-135: Injury SHALL contain exactly one classCode=CLUSTER and moodCode=EVN.
+    </assert>
+    <assert test='cda:code[@code="71481-6" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-137: Injury SHALL contain exactly one code=71481-6 LOINC.
+    </assert>
+    <assert test='cda:statusCode[@code="normal" or @code="aborted" or @code="active" or @code="cancelled" or @code="completed" or @code="held" 
+    or @code="new" or @code="suspended" or @code="nullified" or @code="obsolete"]'>
+       CONF-138 and CONF-139: Injury SHALL contain exactly one statusCode selected from ActStatus
+       2.16.840.1.113883.5.14.
+    </assert>
+    <assert test='count(cda:component[@typeCode="COMP"]/cda:observation/cda:code/@code="11374-6") = 1'>
+       CONF-140, CONF-144, CONF-145 and CONF-149: Injury SHALL contain exactly one Injury Incident
+       Description component.       
+    </assert>
+    
+    <assert test='count(cda:component[@typeCode="COMP"]/cda:observation/cda:code/@code="69444-8") = 1'>
+       CONF-141, CONF-164, CONF-165 and CONF-169: Injury SHALL contain exactly one Injury at Work
+       component.       
+    </assert>
+    
+    <assert test='count(cda:component[@typeCode="COMP"]/cda:observation/cda:code/@code="69448-9") = 1'>
+       CONF-142, CONF-171, CONF-172 and CONF-175: Injury SHALL contain exactly one Injury In Transportation
+       component.       
+    </assert>
+    
+    
+    </rule>
+    
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]/cda:component[@typeCode="COMP"]/cda:observation[cda:code/@code="11374-6"]'>
+    <assert test='@classCode="OBS"'>
+       CONF-146: Injury Incident Description SHALL contain exactly one classCode=OBS.
+    </assert>
+    <assert test='cda:code[@code="11374-6" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-148 and CONF-149: Injury Incident Description SHALL contain exactly one code
+       11374-6 LOINC.
+    </assert>
+    <assert test='count(cda:effectiveTime) = 1'>
+       CONF-152: Injury Incident Description SHALL contain exactly one effectiveTime.    
+    </assert>
+    <assert test='@moodCode="EVN"'>
+       CONF-147: Injury Incident Description SHALL contain exactly one moodCode=EVN.
+    </assert>
+    <assert test='cda:text'>
+       CONF-151: Injury Incident Description SHALL contain exactly one text.
+    </assert>
+    <assert test='count(cda:value/@xsi:type="BL") = 1'>
+       CONF-153: Injury Incident Description SHALL contain exactly one value with xsi:type=BL.
+    </assert>
+    <assert test='count(cda:participant) = 1'>
+       CONF-154: Injury Incident Description SHALL contain exactly one participant.
+    </assert>
+    </rule>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]/cda:component[@typeCode="COMP"]/cda:observation[cda:code/@code="11374-6"]/cda:participant'>
+    <assert test='@typeCode="LOC"'>
+       CONF-155: Injury Incident Description participant SHALL contain exactly one typeCode=LOC.
+    </assert>
+    <assert test='count(cda:participantRole) = 1'>
+       CONF-156: Injury Incident Description participant SHALL contain exactly one participantRole.       
+    </assert>
+    </rule>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]/cda:component[@typeCode="COMP"]/cda:observation[cda:code/@code="11374-6"]/cda:participant/cda:participantRole'>    
+    <assert test='count(cda:addr) = 1'>
+       CONF-157: Injury Incident Description participant participantRole SHALL contain exactly one addr.
+    </assert>
+    <assert test='@classCode="ISDLOC"'>
+       CONF-158: Injury Incident Description participant participantRole SHALL contain exactly one
+       classCode=ISDLOC
+    </assert>
+    <assert test='count(cda:scopingEntity) = 1'>
+       CONF-159: Injury Incident Description participant participantRole SHALL contain exactly one
+       scopingEntity.
+    </assert>
+    </rule>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]/cda:component[@typeCode="COMP"]/cda:observation[cda:code/@code="11374-6"]/cda:participant/cda:scopingEntity'>
+    <assert test='@classCode="PLC" and @determinerCode="INSTANCE"'>
+       CONF-160 and CONF-161: Injury Incident Description participant participantRole scopingEntity SHALL contain
+       exactly one classCode=PLC and determinerCode=INSTANCE.
+    </assert>
+    <assert test='cda:desc'>
+       CONF-163: Injury Incident Description participant participantRole scopingEntity SHALL contain
+       exactly one desc.
+    </assert>
+    
+    </rule>
+
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]/cda:component[@typeCode="COMP"]/cda:observation[cda:code/@code="69444-8"]'>
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-166 and CONF-167: Injury At Work observation SHALL contain exactly one classCode=OBS and
+       moodCode=EVN
+    </assert>
+    <assert test='cda:code[@code="69444-8" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-168 and CONF-169: Injury At Work observation SHALL contain exactly one code 69444-8 LOINC.
+    </assert>
+    <assert test='count(cda:value/@xsi:type="BL") = 1'>
+       CONF-170: Injury at Work observation SHALL contain exactly one value with xsi:type=BL.
+    </assert>
+    
+    </rule>
+
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]/cda:component[@typeCode="COMP"]/cda:observation[cda:code/@code="69448-9"]'>
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-173 and CONF-174: Injury in Transportation observation SHALL contain exactly one classCode=OBS and
+       moodCode=EVN
+    </assert>
+    <assert test='cda:code[@code="69448-9" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-175 and CONF-176: Injury in Transportation observation SHALL contain exactly one code 69448-9 LOINC.
+    </assert>
+    <assert test='count(cda:value/@xsi:type="BL") = 1'>
+       CONF-177: Injury in Transportation observation SHALL contain exactly one value with xsi:type=BL.
+    </assert>
+    </rule>
+    
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]/cda:component[@typeCode="COMP"]/cda:observation[cda:code/@code="69451-3"]'>
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-180 and CONF-181: Transportation role observation SHALL contain exactly one classCode=OBS and
+       moodCode=EVN
+    </assert>
+    <assert test='cda:code[@code="69451-3" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-182 and CONF-183: Transportation role observation SHALL contain exactly one code 69451-3 LOINC.
+    </assert>
+    <assert test='count(cda:value/@xsi:type="CD") = 1'>
+       CONF-184: Transportation role observation SHALL contain exactly one value with xsi:type=CD.
+    </assert>
+
+
+    </rule>
+
+
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.9-warnings">
+    <title>Vital Records Death Reporting Label - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.9-notes">
+    <title>Vital Records Death Reporting Label - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.9"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

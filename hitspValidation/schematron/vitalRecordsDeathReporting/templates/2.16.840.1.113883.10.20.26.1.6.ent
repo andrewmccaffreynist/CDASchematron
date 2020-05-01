@@ -1,0 +1,83 @@
+<!--  Vital Records: Death Reporting Death Causal Information: 2.16.840.1.113883.10.20.26.1.6 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.6-errors">
+    <title>Vital Records Death Reporting Death Causal Information - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.6"]'>
+    <assert test='@classCode="CLUSTER" and @moodCode="EVN"'>
+       CONF-104 and CONF-105: Death Causal Information SHALL contain exactly one classCode=CLUSTER and moodCode=EVN.
+    </assert>
+    <assert test='cda:code[@code="69453-9" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-106: Death Causal Information SHALL contain exactly one code=69453-9 LOINC.
+    </assert>
+    <assert test='cda:statusCode/@code="active"'>
+       CONF-107 and CONF-108: Death Causal Information SHALL contain exactly one statusCode active.
+    </assert>
+    <assert test='cda:component/cda:observation/cda:code[@code="21984-0" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-109: Death Causal Information SHALL contain at least one component, cause of death component.
+    </assert>
+    </rule>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.6"]/cda:component[cda:observation/cda:code[@code="21984-0" and @codeSystem="2.16.840.1.113883.6.1"]]'>
+    <assert test='cda:sequenceNumber'>
+       CONF-118: Death Causal Information component SHALL contain exactly one sequenceNumber.
+    </assert>
+    <assert test='@typeCode="COMP"'>
+       CONF-119: Death Causal Information component SHALL contain exactly one typeCode=COMP.
+    </assert>
+    <assert test='count(cda:observation) = 1'>
+       CONF-120: Death Causal Information component SHALL contain exactly one observation.
+    </assert>
+    </rule>
+    
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.6"]/cda:component/cda:observation[cda:code[@code="21984-0" and @codeSystem="2.16.840.1.113883.6.1"]]'>
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-121 and CONF-124: Death Causal Information component observation SHALL contain exactly one classCode=OBS
+       and moodCode=EVN.
+    </assert>
+    <assert test='cda:code[@code="21984-0" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-123: Death Causal Information component observation SHALL contain exactly one code 21984-0 LOINC.
+    </assert>
+    <assert test='cda:value[@xsi:type="CD"]'>
+       CONF-125: Death Causal Information component observation SHALL contain exactly one value
+       with xsi:type=CD.
+    </assert>
+    <assert test='cda:entryRelationship[@typeCode="COMP"]/cda:observation[@classCode="OBS" and @moodCode="EVN"]'>
+       CONF-126, CONF-127, CONF-128, CONF-129 and CONF-132: Death Causal Information component observation
+       SHALL contain exactly one componentDeathCauseInterval.
+    </assert>
+    </rule>
+    
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.6"]/cda:component/cda:observation/cda:component[@typeCode="COMP"]/cda:observation[@classCode="OBS" and @moodCode="EVN"]'>
+    <assert test='cda:code[@code="69440-6" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-131: Death Causal Information componentDeathCauseInterval SHALL contain exactly one code
+       69440-6 LOINC.
+    </assert>
+    </rule>
+    
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.6-warnings">
+    <title>Vital Records Death Reporting Death Causal Information - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.6"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.6-notes">
+    <title>Vital Records Death Reporting Death Causal Information - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.6"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

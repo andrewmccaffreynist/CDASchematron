@@ -1,0 +1,80 @@
+<!--  Vital Records: Death Reporting Certifying Death: 2.16.840.1.113883.10.20.26.1.7 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.7-errors">
+    <title>Vital Records Death Reporting Certifying Death - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.7"]'>
+
+    <assert test='@classCode and @moodCode'>
+       CONF-71 and CONF-72: Certifying Death SHALL contain exactly one @classCode and exactly
+       one @moodCode.
+    </assert>
+    <assert test='cda:code[@code="69437-2" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-73: Certifying Death SHALL contain exactly one code 69437-2 LOINC.
+    </assert>
+    <assert test='count(cda:effectiveTime) = 1'>
+       CONF-74: Certifying Death SHALL contain exactly one effectiveTime.
+    </assert>
+    <assert test='cda:performer'>
+       CONF-75: Certifying Death SHALL contain exactly one performer.       
+    </assert>
+    <assert test='cda:value'>
+       CONF-??: Certifying Death SHALL contain exactly one value.
+    </assert>
+    
+    </rule>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.7"]/cda:performer'>
+    <assert test='@typeCode="PRF"'>
+       CONF-76: Certifying Death performer SHALL contain exactly one typeCode=PRF.
+    </assert>
+    <assert test='cda:assignedEntity'>
+       CONF-77: Certifying Death performer SHALL contain exactly one assignedEntity.
+    </assert>
+    </rule>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.7"]/cda:performer/cda:assignedEntity'>
+    <assert test='count(cda:addr) = 1'>
+       CONF-82: Certifying Death performer assignedEntity SHALL contain exactly one address.
+    </assert>
+    <assert test='@classCode="ASSIGNED"'>
+       CONF-78: Certifying Death performer assignedEntity SHALL contain exactly one classCode=ASSIGNED.
+    </assert>
+    <assert test='cda:code'>
+       CONF-80: Certifying Death performer assignedEntity SHALL contain exactly one code.
+    </assert>
+    <assert test='cda:id'>
+       CONF-79: Certifying Death performer assignedEntity SHALL contain at least one id..
+    </assert>
+    <assert test='count(cda:assignedPerson[@classCode="PSN" and @determinerCode="INSTANCE"]/cda:name)=1'>
+       CONF-83, CONF-84, CONF-85 and CONF-86: Certifying Death performer assignedEntity SHALL
+       contain exactly one assignedPerson with a classCode=PSN, determinerCode=INSTANCE and
+       exactly one name.
+    </assert>
+    </rule>    
+    
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.7-warnings">
+    <title>Vital Records Death Reporting Certifying Death - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.7"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.7-notes">
+    <title>Vital Records Death Reporting Certifying Death - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.7"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

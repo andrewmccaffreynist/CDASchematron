@@ -1,0 +1,49 @@
+<!--  Vital Records: Death Reporting Tobacco Use: 2.16.840.1.113883.10.20.26.1.14 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.14-errors">
+    <title>Vital Records Death Reporting Tobacco Use - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.14"]'>
+
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-99 and CONF-100: Tobacco Use SHALL contain exactly one classCode=OBS and moodCode=EVN.
+    </assert>
+    
+    <assert test='cda:code[@code="69443-0" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-101: Tobacco Use SHALL contain exactly one code=58332-8 LOINC.
+    </assert>
+    
+    <assert test='cda:value[@xsi:type="CD"]'>
+       CONF-102: Tobacco Use component observation SHALL contain exactly one value
+       with xsi:type=CD.
+    </assert>
+    
+    </rule>
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.14-warnings">
+    <title>Vital Records Death Reporting Tobacco Use - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.14"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.14-notes">
+    <title>Vital Records Death Reporting Tobacco Use - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.14"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

@@ -1,0 +1,152 @@
+
+<!--  Vital Records: Death Reporting Document: 2.16.840.1.113883.10.20.26.1 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1-errors">
+    <title>Vital Records Death Reporting Document - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1"]'>
+
+    <assert test='./@classCode="DOCCLIN"'>
+       CONF-1: Vital Records Death Reporting SHALL contain exactly one @classCode = DOCCLIN.
+    </assert>
+    <assert test='./@moodCode="EVN"'>
+       CONF-2: Vital Records Death Reporting SHALL contain exactly one @moodCode = EVN.
+    </assert>
+    <assert test='cda:code/@code="69409-1"'>
+       CONF-4: Vital Records Death Reporting SHALL contain exactly one code/@code=69409-1.
+    </assert>
+    <assert test='cda:confidentialityCode'>
+       CONF-5: Vital Records Death Reporting SHALL contain exactly one confidentialityCode 
+    </assert>
+    <assert test='cda:id'>
+       CONF-7: Vital Records Death Reporting SHALL contain exactly one id.
+    </assert>
+    <assert test='cda:realmCode'>
+       CONF-10: Vital Records Death Reporting SHALL contain exactly one realmCode.
+    </assert>
+    <assert test='count(cda:effectiveTime) = 1'>
+       CONF-13: Vital Records Death Reporting SHALL contain exactly one effectiveTime.
+    </assert>
+    <assert test='count(cda:recordTarget) = 1'>
+       CONF-14: Vital Records Death Reporting SHALL contain exactly one recordTarget.
+    </assert>
+    <assert test='count(cda:author) = 1'>
+       CONF-15: Vital Records Death Reporting SHALL contain exactly one author.
+    </assert>
+    <assert test='count(cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:id) = 1 and 
+                  count(cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:id) = 1'>
+       CONF-16, CONF-18, CONF-19, CONF-20: Vital Records Death Reporting SHALL contain exactly one
+       custodian.  Custodian SHALL contain exactly one assignedCustodian.  Assigned Custodian SHALL contain
+       exactly one representedCustodianOrganization. representedCustodianOrganization SHALL contain exactly
+       one id and exactly one name.
+    </assert>
+    <assert test='count(cda:component//cda:templateId/@root="2.16.840.1.113883.10.20.26.1.1") = 1'>
+       CONF-17: Vital Records Death Reporting SHALL contain exactly one component.  Component
+       contains exactly one Death Report Document Body (templateID: 2.16.840.1.113883.10.20.26.1.1).
+    </assert>
+    
+    </rule>
+    <rule context="//cda:recordTarget">
+    <assert test='@typeCode="RCT"'>
+       CONF-30: Record Target SHALL contain exactly one @typeCode=RCT.   
+    </assert>
+    <assert test='cda:patientRole'>
+       CONF-31: Record Target SHALL contain exactly one patientRole.
+    </assert>
+    
+    </rule>
+    <rule context='//cda:recordTarget/cda:patientRole'>
+    <assert test='count(cda:addr) = 1'>
+       CONF-35: Patient Role SHALL contain exactly 1 addr.
+    </assert>
+    <assert test='@classCode="PAT"'>
+       CONF-33: Patient Role SHALL contain exactly 1 @classCode=PAT.
+    </assert>
+    <assert test='cda:id'>
+       CONF-34: Patient Role SHALL contain at least 1 id.
+    </assert>
+    <assert test='count(cda:patient) = 1'>
+       CONF-36: Patient Role SHALL contain exactly 1 patient.
+    </assert>
+    <assert test='cda:id/@root="2.16.840.1.113883.4.1"'>
+       CONF-32: Patient Role SHALL satisfy value patient.id root with
+       2.16.840.1.113883.4.1 (US Social Security Number).
+    </assert>
+    </rule>
+    <rule context='//cda:recordTarget/cda:patientRole/cda:patient'>
+    <assert test='cda:administrativeGenderCode'>
+       CONF-38: Patient SHALL contain exactly one administrativeGenderCode.
+    </assert>
+    <assert test='@classCode="PSN"'>
+       CONF-39: Patient SHALL contain exactly one classCode=PSN.
+    </assert>
+    <assert test='@determinerCode="INSTANCE"'>
+       CONF-40: Patient SHALL contain exactly one determinerCode=INSTANCE.
+    </assert>
+    <assert test='count(cda:name) = 1'>
+       CONF-41 Patient SHALL contain exactly one name.
+    </assert>    
+    </rule>
+    
+    <rule context="/cda:ClinicalDocument/cda:author">
+    <assert test='cda:time'>
+       CONF-22: Author SHALL contain exactly one time.
+    </assert>
+    <assert test='@typeCode="AUT"'>
+       CONF-21: Author SHALL contain exactly one typeCode=AUT.
+    </assert>
+    <assert test='cda:assignedAuthor'>
+       CONF-23: Author SHALL contain exactly one assignedAuthor.
+    </assert>
+    </rule>
+
+    <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor">
+    <assert test='@classCode="ASSIGNED"'>
+       CONF-24: Assigned Author SHALL contain exactly one @classCode=ASSIGNED.
+    </assert>
+    <assert test='count(cda:id) = 1'>
+       CONF-25: Assigned Author SHALL contain exactly one id.
+    </assert>
+    <assert test='count(cda:assignedPerson) = 1'>
+       CONF-26: Assigned Author SHALL contain exactly one Assigned Person.
+    </assert>
+    </rule>
+    
+    <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson">
+    <assert test='@classCode="PSN"'>
+       CONF-27: Assigned Person SHALL contain exactly one classCode=PSN.
+    </assert>
+    <assert test='@determinerCode="INSTANCE"'>
+       CONF-28: Assigned Person SHALL contain exactly one determinerCode=INSTANCE.
+    </assert>
+    <assert test='cda:name'>
+       CONF-29: Assigned Person SHALL contain exactly one name.
+    </assert>
+    </rule>
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1-warnings">
+    <title>Vital Records Death Reporting Document - warning validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- manual -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1-notes">
+    <title>Vital Records Death Reporting Document - manual validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

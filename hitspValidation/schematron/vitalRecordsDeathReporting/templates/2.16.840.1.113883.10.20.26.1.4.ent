@@ -1,0 +1,58 @@
+<!--  Vital Records: Death Reporting Coroner Case Transfer: 2.16.840.1.113883.10.20.26.1.4 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.4-errors">
+    <title>Vital Records Death Reporting Coroner Case Transfer - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.4"]'>
+
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-218 and CONF-219: Coroner Case Transfer SHALL contain exactly ONE classCode=OBS and moodCode=EVN.
+    </assert>
+    <assert test='cda:code[@code="69438-0" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-220 and CONF-221: Coroner Case Transfer SHALL contain exactly one code 69438-0 LOINC.
+    </assert>
+    <assert test='cda:value[@xsi:type="BL"]'>
+       CONF-222: Coroner Case Transfer SHALL contain exactly one value with xsi:Type=BL.
+    </assert>
+    </rule>
+
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.4"]/cda:entryRelationship'>
+    <assert test='cda:observation/@classCode="OBS"'>
+       CONF-226: Coroner Case Transfer entryRelationship SHALL contain exactly one classCode=OBS.
+    </assert>
+    <assert test='cda:observation/cda:code[@code="69452-1" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-227 and CONF-228: Coroner Case Transfer entryRelationship SHALL contain exactly one code 69452-1 LOINC. 
+    </assert>
+    <assert test='cda:observation/cda:value[@xsi:type="II"]'>
+       CONF-229: Coroner Case Transfer entryRelationship SHALL contain exactly one value with xsi:type=II.
+    </assert>
+    
+    </rule>
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.4-warnings">
+    <title>Vital Records Death Reporting Coroner Case Transfer - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.4"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.4-notes">
+    <title>Vital Records Death Reporting Coroner Case Transfer - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.4"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

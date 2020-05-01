@@ -1,0 +1,46 @@
+<!--  Vital Records: Death Reporting Coroner Referral: 2.16.840.1.113883.10.20.26.1.5 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.5-errors">
+    <title>Vital Records Death Reporting Coroner Referral - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.5"]'>
+
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-213 and CONF-214: Coroner Referral SHALL contain exactly one classCode=OBS and exactly one moodCode=EVN
+    </assert>
+    <assert test='cda:code[@code="69438-0" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-216: Coroner Referral SHALL contain exactly one code=69438-0 LOINC.
+    </assert>
+    <assert test='cda:value[@xsi:type="ED"]'>
+       CONF-217: Coroner Referral SHALL contain exactly one value with xsi:type=ED.
+    </assert>
+
+    </rule>
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.5-warnings">
+    <title>Vital Records Death Reporting Coroner Referral - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.5"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.5-notes">
+    <title>Vital Records Death Reporting Coroner Referral - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.5"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

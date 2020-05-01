@@ -1,0 +1,57 @@
+<!--  Vital Records: Death Reporting Autopsy Results: 2.16.840.1.113883.10.20.26.1.3 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.3-errors">
+    <title>Vital Records Death Reporting Autopsy Results - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.3"]'>
+
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-200 and CONF-201: Autopsy Results SHALL contain exactly one classCode=OBS and moodCode=EVN
+    </assert>
+    <assert test='cda:code[@code="69436-4" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-203: Autopsy Results SHALL contain exactly ONE code 69436-4 LOINC.
+    </assert>
+    <assert test='cda:value/@xsi:type="BL"'>
+       CONF-204: Autopsy Results SHALL contain exactly ONE value with xsi:type=BL.
+    </assert>
+    <assert test='not(cda:entryRelationship) or cda:entryRelationship/@typeCode="COMP"'>
+       CONF-206: Autopsy Results entryRelationship SHALL contain exactly one typeCode=COMP.       
+    </assert>
+    <assert test='not(cda:entryRelationship) or cda:entryRelationship/cda:observation[@classCode="OBS" and @moodCode="EVN"]'>
+       CONF-207 and CONF-208 and CONF-209: Autopsy Results entryRelationship SHALL contain exactly one observation with classCode=OBS and moodCode=EVN.
+    </assert>
+    <assert test='not(cda:entryRelationship) or cda:entryRelationship/cda:observation/cda:code[@code="18743-5" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-211: Autopsy Results entryRelationship observation SHALL contain exactly one code 18743-5 LOINC.
+    </assert>
+    <assert test='not(cda:entryRelationship) or cda:entryRelationship/cda:observation/cda:value/@xsi:type="ED"'>
+       CONF-212: Autopsy Results entryRelationship observation SHALL contain exactly one value with @xsi:type=ED.
+    </assert>
+    </rule>
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.3-warnings">
+    <title>Vital Records Death Reporting Autopsy Results - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.3"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.3-notes">
+    <title>Vital Records Death Reporting Autopsy Results - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.3"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

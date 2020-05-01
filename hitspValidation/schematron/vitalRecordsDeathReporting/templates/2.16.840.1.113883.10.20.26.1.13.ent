@@ -1,0 +1,45 @@
+<!--  Vital Records: Death Reporting Date and Time of Death: 2.16.840.1.113883.10.20.26.1.13 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.13-errors">
+    <title>Vital Records Death Reporting Date and Time of Death - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.13"]'>
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-42 and CONF-43: Date and Time of Death SHALL contain exactly one classCode=OBS and moodCode=EVN
+    </assert>
+    <assert test='cda:code[@code="31211-6" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-44 and CONF-45: Date and Time of Death SHALL contain exactly one code 31211-6 LOINC
+    </assert>
+    <assert test='cda:effectiveTime[@xsi:type="TS"]'>
+       CONF-46: Date and Time of Death SHALL contain exactly one effectiveTime with xsi:type=TS.
+    </assert>
+
+    </rule>
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.13-warnings">
+    <title>Vital Records Death Reporting Date and Time of Death - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.13"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.13-notes">
+    <title>Vital Records Death Reporting Date and Time of Death - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.13"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

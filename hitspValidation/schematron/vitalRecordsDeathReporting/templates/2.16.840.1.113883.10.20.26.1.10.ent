@@ -1,0 +1,44 @@
+<!--  Vital Records: Death Reporting Location of Death: 2.16.840.1.113883.10.20.26.1.10 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.10-errors">
+    <title>Vital Records Death Reporting Location of Death - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.10"]'>
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-65 and CONF-66: Location of Death SHALL contain exactly one classCode=OBS and moodCode=EVN.
+    </assert>
+    <assert test='cda:code[@code="58332-8" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-67 and CONF-68: Location of Death SHALL contain exactly one code 58332-8 LOINC.
+    </assert>
+    <assert test='cda:value[@xsi:type="AD"]'>
+       CONF-70: Location of Death SHALL contain exactly one value with xsi:type=AD.
+    </assert>
+    </rule>
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.10-warnings">
+    <title>Vital Records Death Reporting Location of Death - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.10"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.10-notes">
+    <title>Vital Records Death Reporting Location of Death - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.10"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

@@ -1,0 +1,37 @@
+<!--  Vital Records: Death Reporting Label: OID -->
+
+<!-- errors -->
+
+  <pattern id="p-OID-errors">
+    <title>Vital Records Death Reporting Label - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="OID"]'>
+
+
+    </rule>
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-OID-warnings">
+    <title>Vital Records Death Reporting Label - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="OID"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-OID-notes">
+    <title>Vital Records Death Reporting Label - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="OID"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

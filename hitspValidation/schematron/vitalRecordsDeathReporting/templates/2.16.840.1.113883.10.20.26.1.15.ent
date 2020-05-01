@@ -1,0 +1,58 @@
+<!--  Vital Records: Death Reporting Pronouncing Death: 2.16.840.1.113883.10.20.26.1.15 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.15-errors">
+    <title>Vital Records Death Reporting Pronouncing Death - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.15"]'>
+    <assert test='@classCode and @moodCode'>
+       CONF-236 and CONF-237: Pronouncing Death SHALL contain exactly one classCode and moodCode.
+    </assert>
+    <assert test='cda:code[@code="74499-5" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-238: Pronouncing Death SHALL contain exactly one code 74499-5 LOINC.
+    </assert>
+    <assert test='count(cda:effectiveTime) = 1'>
+       CONF-239: Pronouncing Death SHALL contain exactly one effectiveTime.
+    </assert>
+    
+    </rule>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.15"]/cda:performer'>
+    <assert test='@typeCode="PRF"'>
+       CONF-241: Pronouncing Death performer SHALL contain exactly one typeCode=PRF.
+    </assert>
+    <assert test='count(cda:assignedEntity) = 1'>
+       CONF-242: Pronouncing Death performer SHALL contain exactly one assignedEntity.
+    </assert>
+    </rule>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.15"]/cda:performer/cda:assignedEntity'>
+    <assert test='@classCode="ASSIGNED"'>
+       CONF-243: Pronouncing Death performer assignedEntity SHALL contain classCode=ASSIGNED.
+    </assert>
+    <assert test='cda:id'>
+    </rule>
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.15-warnings">
+    <title>Vital Records Death Reporting Pronouncing Death - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.15"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.15-notes">
+    <title>Vital Records Death Reporting Pronouncing Death - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.15"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

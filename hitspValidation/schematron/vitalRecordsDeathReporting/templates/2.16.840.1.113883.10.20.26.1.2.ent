@@ -1,0 +1,80 @@
+<!--  Vital Records: Death Reporting Autopsy Performance: 2.16.840.1.113883.10.20.26.1.2 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.2-errors">
+    <title>Vital Records Death Reporting Autopsy Performance - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.2"]'>
+
+    <assert test='@classCode="OBS" and @moodCode="EVN"'>
+       CONF-186 and CONF-187: Autopsy Performance SHALL contain exactly one classCode=OBS and moodCode=EVN.
+    </assert>
+    <assert test='cda:code[@code="21986-5" and @codeSystem="2.16.840.1.113883.6.1"]'>
+       CONF-188 and CONF-189: Autopsy Performance SHALL contain exactly one code/code=21986-5 LOINC.
+    </assert>
+    <assert test='cda:effectiveTime'>
+       CONF-190: Autopsy Performance SHALL contain exactly one effectiveTime.
+    </assert>
+    <assert test='cda:value/@xsi:type="BL"'>
+       CONF-191: Autopsy Performance SHALL contain exactly one value with xsi:type=BL.
+    </assert>
+    
+    <assert test='not(cda:performer) or cda:performer/@typeCode="PRF"'>
+       CONF-193: Autopsy Performance performer SHALL contain typeCode=PRF.
+    </assert>
+
+    <assert test='not(cda:performer) or cda:performer/cda:assignedEntity'>
+       CONF-194: Autopsy Performance performer SHALL contain exactly one assignedEntity.
+    </assert>
+
+    <assert test='not(cda:performer) or cda:performer/cda:assignedEntity/@classCode="ASSIGNED"'>
+       CONF-195: Autopsy Performance performer assignedEntity SHALL contain classCode=ASSIGNED.
+    </assert>
+
+    <assert test='not(cda:performer) or cda:performer/cda:assignedEntity/cda:assignedPerson'>
+       CONF-196: Autopsy Performance performer assignedEntity SHALL contain exactly one assignedPerson.
+    </assert>
+
+    <assert test='not(cda:performer) or cda:performer/cda:assignedEntity/cda:assignedPerson/@classCode="PSN"'>
+       CONF-197: Autopsy Performance performer assignedEntity assignedPerson SHALL contain classCode=PSN.
+    </assert>
+
+    <assert test='not(cda:performer) or cda:performer/cda:assignedEntity/cda:assignedPerson/@determinerCode="INSTANCE"'>
+       CONF-198: Autopsy Performance performer assignedEntity assignedPerson SHALL contain determinerCode=INSTANCE.
+    </assert>
+
+    <assert test='not(cda:performer) or cda:performer/cda:assignedEntity/cda:assignedPerson/cda:name'>
+       CONF-199: Autopsy Performance performer assignedEntity assignedPerson SHALL contain exactly one name.
+    </assert>
+
+
+
+
+    </rule>
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.2-warnings">
+    <title>Vital Records Death Reporting Autopsy Performance - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.2"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.2-notes">
+    <title>Vital Records Death Reporting Autopsy Performance - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.2"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

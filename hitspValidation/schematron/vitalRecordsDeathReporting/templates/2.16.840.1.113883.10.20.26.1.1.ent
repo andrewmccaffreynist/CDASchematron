@@ -1,0 +1,78 @@
+<!--  Vital Records: Death Reporting Body: 2.16.840.1.113883.10.20.26.1.1 -->
+
+<!-- errors -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.1-errors">
+    <title>Vital Records Death Reporting Body - errors validation phase</title>
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.1"]'>
+    <assert test='cda:code/@code="69409-1"'>
+       CONF-48: Death Report Document Body SHALL contain exactly one code/@code=69409-1.
+    </assert>
+    <assert test='cda:text'>
+       CONF-50: Death Report Document Body SHALL contain exactly one text.
+    </assert>    
+    <assert test='(@nullFlavor) or count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.13"]) = 1'>
+       CONF-51: Death Report Document Body SHALL contain exactly one Date and Time of Death (2.16.840.1.113883.10.20.26.1.13).
+    </assert>
+    <assert test='(@nullFlavor) or count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.10"]) = 1'>
+       CONF-52: Death Report Document Body SHALL contain exactly one Location of Death (2.16.840.1.113883.10.20.26.1.10).
+    </assert>
+    <assert test='(@nullFlavor) or (count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.8"]) = 1)'>
+       CONF-53: Death Report Document Body SHALL contain exactly one Death LocationType (2.16.840.1.113883.10.20.26.1.8).
+    </assert>
+    <!--
+    <assert test='(@nullFlavor) or (count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.7"]) = 1)'>
+       CONF-54: Death Report Document Body SHALL contain exactly one Certifying Death (2.16.840.1.113883.10.20.26.1.7).
+    </assert>
+    -->
+    <assert test='(@nullFlavor) or (count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.11"]) = 1)'>
+       CONF-55: Death Report Document Body SHALL contain exactly one Manner of Death (2.16.840.1.113883.10.20.26.1.11).
+    </assert>
+    <assert test='(@nullFlavor) or (count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.15"]) = 1)'>
+       CONF-56: Death Report Document Body SHALL contain exactly one Pronouncing Death (2.16.840.1.113883.10.20.26.1.15).
+    </assert>
+    <assert test='(@nullFlavor) or (count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.12"]) = 1)'>
+       CONF-57: Death Report Document Body SHALL contain exactly one Pregnancy Status (2.16.840.1.113883.10.20.26.1.12).
+    </assert>
+    <assert test='(@nullFlavor) or (count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.14"]) = 1)'>
+       CONF-58: Death Report Document Body SHALL contain exactly one Tobacco Use (2.16.840.1.113883.10.20.26.1.14).
+    </assert>
+    
+    <assert test='(@nullFlavor) or (count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.9"]) = 1)'>
+       CONF-60: Death Report Document Body SHALL contain exactly one Death Causal Information (2.16.840.1.113883.10.20.26.1.9).
+    </assert>
+    <assert test='(@nullFlavor) or (count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.2"]) = 1)'>
+       CONF-61: Death Report Document Body SHALL contain exactly one Autopsy Performance (2.16.840.1.113883.10.20.26.1.2).
+    </assert>
+    <assert test='(@nullFlavor) or (count(.//cda:templateId[@root="2.16.840.1.113883.10.20.26.1.4"]) = 1)'>
+       CONF-64: Death Report Document Body SHALL contain exactly one Coroner Case Transfer (2.16.840.1.113883.10.20.26.1.4).
+    </assert>
+    
+    </rule>
+
+  </pattern>
+
+  <!-- warning -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.1-warnings">
+    <title>Vital Records Death Reporting Body - warnings validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.1"]'>
+      <report test="."/>
+    </rule>
+-->
+
+  </pattern>
+
+  <!-- notes -->
+
+  <pattern id="p-2.16.840.1.113883.10.20.26.1.1-notes">
+    <title>Vital Records Death Reporting Body - notes validation phase</title>
+
+<!--
+    <rule context='*[cda:templateId/@root="2.16.840.1.113883.10.20.26.1.1"]'>
+      <report test="."/>
+    </rule>
+-->
+  </pattern>

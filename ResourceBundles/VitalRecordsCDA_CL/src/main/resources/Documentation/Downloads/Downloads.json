@@ -1,0 +1,12 @@
+{
+	"installationGuide":{
+		"title":"Installation Guide - NIST HL7v2 Validation Tools.docx (Same for eRx Tool)",
+		"name":"Installation Guide - NIST HL7v2 Validation Tools.docx",
+		"date":"12/09/2016"
+	 },
+	 "downloads" : {
+			 "title":"eRxtool-1.0.1",
+			 "link":"http://hit-2015.nist.gov/wars/eRxncpdp-1.0.0.zip",
+			 "date":"04/26/2016"
+  			}
+}

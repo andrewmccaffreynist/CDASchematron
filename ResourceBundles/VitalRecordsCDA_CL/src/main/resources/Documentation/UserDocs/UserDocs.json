@@ -1,0 +1,26 @@
+[
+			{
+			 "title":"Use Cases",
+			 "name":"Use_Cases.pdf",
+			 "date":"11/13/2015",
+                 "order":2
+			},
+			{ 
+ 			 "title":"How to configure Transport for testing - Training Video", 
+ 			 "link":"http://hit-2015.nist.gov/erx/Configure/video_transport.mp4", 
+ 			 "date":"4/1/2016", 
+ 			 "order":3 
+ 			}, 
+			{ 
+ 			 "title":"How to use the SUT to simulate the EHR under test - Training Video", 
+ 			 "link":"http://hit-2015.nist.gov/erx/Transport/index.htm", 
+ 			 "date":"3/8/2016", 
+ 			 "order":3 
+ 			}, 
+			{
+			 "title":"SUT Simulator Instructions",
+			 "name":"SUT_Simulator.pptx",
+			 "date":"3/8/2016",
+                 "order":4
+			}
+]

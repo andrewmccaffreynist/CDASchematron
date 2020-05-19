@@ -1,0 +1,9 @@
+{ 
+	"name" : "Vital Records Death Reporting", 
+	"description" : "",
+    "domain": "VR",
+    "transport" : true,
+  "position":1,
+  "version":"1",
+  "id":"2000"
+}
